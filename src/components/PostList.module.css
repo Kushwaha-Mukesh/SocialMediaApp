@@ -1,0 +1,9 @@
+.postContainer {
+    min-width: 20rem;
+    width: 40rem;
+    margin: auto auto 2rem auto;
+}
+
+.reaction {
+    margin: 0 0.5rem 1rem 0;
+}
