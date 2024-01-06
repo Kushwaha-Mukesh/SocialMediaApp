@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { userContext } from "../store/Store";
 import styles from "./PostList.module.css";
+import { TiDeleteOutline } from "react-icons/ti";
 
 function PostList() {
-  const { postList } = useContext(userContext);
+  const { postList, deletePostItem } = useContext(userContext);
   return (
     <>
       {postList.map((post) => {
@@ -21,6 +22,13 @@ function PostList() {
                 </span>
               ))}
               <p>{post.reaction} People reacted.</p>
+
+              <span
+                className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                onClick={() => deletePostItem(post.id)}
+              >
+                <TiDeleteOutline />
+              </span>
             </div>
           </div>
         );

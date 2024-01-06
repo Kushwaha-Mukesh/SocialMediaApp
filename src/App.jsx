@@ -4,9 +4,9 @@ import Footer from "./components/Footer";
 import CreatePost from "./components/CreatePost";
 import PostLists from "./components/PostLists";
 import { AppContainer } from "./store/Store";
-import { useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
+import { useState } from "react";
 
 function App() {
   const [sidebar, setSidebar] = useState("Home");
@@ -19,7 +19,9 @@ function App() {
         <div className="mainSection">
           <Header className="header"></Header>
           {sidebar === "Home" && <PostLists></PostLists>}
-          {sidebar === "CreatePost" && <CreatePost></CreatePost>}
+          {sidebar === "CreatePost" && (
+            <CreatePost setSidebar={setSidebar}></CreatePost>
+          )}
           <Footer className="footer"></Footer>
         </div>
       </div>

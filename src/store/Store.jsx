@@ -6,12 +6,25 @@ export const userContext = createContext({
   deletePostItem: () => {},
 });
 
-function reducer() {}
+function reducer(postList, action) {
+  let newPostListItem = postList;
+  if (action.type === "CREATE_POST") {
+    newPostListItem = [action.payload, ...postList];
+  } else if (action.type === "DELETE_POST") {
+    newPostListItem = postList.filter((post) => post.id !== action.payload);
+  }
+  return newPostListItem;
+}
 
 export function AppContainer({ children }) {
   const [postList, dispatchPostList] = useReducer(reducer, defaultPost);
-  const addPostItem = () => {};
-  const deletePostItem = () => {};
+  const addPostItem = (newPostItem) => {
+    dispatchPostList({ type: "CREATE_POST", payload: newPostItem });
+  };
+  const deletePostItem = (postID) => {
+    console.log(postID);
+    dispatchPostList({ type: "DELETE_POST", payload: postID });
+  };
   return (
     <userContext.Provider value={{ postList, addPostItem, deletePostItem }}>
       {children}
