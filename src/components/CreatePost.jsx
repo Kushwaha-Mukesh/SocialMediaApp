@@ -15,7 +15,7 @@ function CreatePost({ setSidebar }) {
       title: addTitle.current.value,
       body: addBody.current.value,
       tags: addTags.current.value.split(" "),
-      reaction: addReaction.current.value,
+      reactions: addReaction.current.value,
     };
     addPostItem(newPostItem);
     addTitle.current.value = "";

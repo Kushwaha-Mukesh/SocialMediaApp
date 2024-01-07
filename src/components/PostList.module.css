@@ -1,9 +1,19 @@
 .postContainer {
-    min-width: 20rem;
+    min-width: 10rem;
     width: 40rem;
-    margin: auto auto 2rem auto;
+    margin: auto auto 2rem 30%;
 }
 
-.reaction {
+.postHeading {
+    font-weight: bold;
+}
+
+.postBody{
+    font-weight: 500;
+    color: black;
+}
+
+.tag {
+    padding: 5px 5px;
     margin: 0 0.5rem 1rem 0;
 }
