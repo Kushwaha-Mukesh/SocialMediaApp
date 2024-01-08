@@ -1,7 +1,9 @@
 import { useContext, useRef } from "react";
 import { userContext } from "../store/Store";
 import styles from "./CreatePost.module.css";
-function CreatePost({ setSidebar }) {
+import { useNavigate } from "react-router-dom";
+function CreatePost() {
+  const navigate = useNavigate();
   const { addPostItem } = useContext(userContext);
   const addTitle = useRef();
   const addBody = useRef();
@@ -22,7 +24,7 @@ function CreatePost({ setSidebar }) {
     addBody.current.value = "";
     addTags.current.value = "";
     addReaction.current.value = "";
-    setSidebar("Home");
+    navigate("/");
   }
   return (
     <form className={styles.createPost} onSubmit={(e) => handleSubmit(e)}>
